@@ -1,9 +1,34 @@
+# IntelliJ
 *.iml
-.gradle
-/local.properties
+*.ipr
+*.iws
+.idea
+out/
+
+# Mac
+.DS_Store
+
+# Ignore gradle files
+.gradle/
+build/
+gradlew.bat
+/captures
+
+# Eclipse
+.classpath
+.project
+.externalToolBuilders/
+
+*.swp
+local.properties
+
+# Android generated
+bin/
+gen/
+
+# ignore the asr files
+libpocketsphinx.so
+
+.externalNativeBuild
 /.idea/workspace.xml
 /.idea/libraries
-.DS_Store
-/build
-/captures
-.externalNativeBuild

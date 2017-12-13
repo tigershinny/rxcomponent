@@ -1,7 +1,5 @@
 package com.tiger.mbaas.exception;
 
-import com.tiger.mbaas.entity.response.ErrorMetaDataDTO;
-
 import java.io.IOException;
 
 /**
