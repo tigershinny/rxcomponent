@@ -23,6 +23,7 @@ versions.atsl_rules = "1.0.1"
 versions.hamcrest = "1.3"
 versions.kotlin = "1.1.4-2"
 versions.paging = "1.0.0-alpha4-1"
+versions.gson = "2.7"
 def deps = [:]
 
 def support = [:]
@@ -69,6 +70,10 @@ dagger.compiler = "com.google.dagger:dagger-compiler:$versions.dagger"
 dagger.android_support_compiler = "com.google.dagger:dagger-android-processor:$versions.dagger"
 
 deps.dagger = dagger
+
+def gson = [:]
+gson.runtime = "com.google.code.gson:gson:$versions.gson"
+deps.gson = gson
 
 def espresso = [:]
 espresso.core = "com.android.support.test.espresso:espresso-core:$versions.espresso"

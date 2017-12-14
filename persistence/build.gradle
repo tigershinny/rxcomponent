@@ -28,6 +28,15 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation deps.support.app_compat
+    implementation deps.room.runtime
+    annotationProcessor deps.room.compiler
+    implementation deps.room.rxjava2
+    implementation deps.gson.runtime
+
+
+    // RxJava
+    implementation deps.rx_android
+    implementation deps.rxjava2
 
     testImplementation deps.junit
 
