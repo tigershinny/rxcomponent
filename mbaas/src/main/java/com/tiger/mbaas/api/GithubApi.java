@@ -1,9 +1,8 @@
 package com.tiger.mbaas.api;
 
-import android.database.Observable;
-
 import com.tiger.mbaas.entity.response.github.UserInfo;
 
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
