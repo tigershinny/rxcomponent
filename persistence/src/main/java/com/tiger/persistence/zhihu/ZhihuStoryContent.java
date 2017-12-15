@@ -1,9 +1,18 @@
 package com.tiger.persistence.zhihu;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverters;
+
+import com.tiger.persistence.Converters;
+
+import java.util.List;
+
 /**
  * Created by tigershen on 2017/12/13.
  */
-
+@Entity
+@TypeConverters({Converters.class})
 public class ZhihuStoryContent {
 
     /**
@@ -27,10 +36,11 @@ public class ZhihuStoryContent {
     private String share_url;
     private String ga_prefix;
     private String type;
+    @PrimaryKey
     private String id;
-    private String[] js;
-    private String[] images;
-    private String[] css;
+    private List<String> js;
+    private List<String> images;
+    private List<String> css;
 
     public String getBody() {
         return body;
@@ -96,27 +106,27 @@ public class ZhihuStoryContent {
         this.id = id;
     }
 
-    public String[] getJs() {
+    public List<String> getJs() {
         return js;
     }
 
-    public void setJs(String[] js) {
+    public void setJs(List<String> js) {
         this.js = js;
     }
 
-    public String[] getImages() {
+    public List<String> getImages() {
         return images;
     }
 
-    public void setImages(String[] images) {
+    public void setImages(List<String> images) {
         this.images = images;
     }
 
-    public String[] getCss() {
+    public List<String> getCss() {
         return css;
     }
 
-    public void setCss(String[] css) {
+    public void setCss(List<String> css) {
         this.css = css;
     }
 }

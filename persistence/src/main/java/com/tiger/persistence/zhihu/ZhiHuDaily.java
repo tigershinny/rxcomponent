@@ -1,14 +1,16 @@
 package com.tiger.persistence.zhihu;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 
 /**
  * Created by tigershen on 2017/12/13.
  */
-
+@Entity
 public class ZhiHuDaily {
+
+    @PrimaryKey(autoGenerate = true)
+    private int id;
 
     /**
      * date : 20160913
@@ -16,22 +18,6 @@ public class ZhiHuDaily {
      * top_stories : [{"image":"http://pic1.zhimg.com/e0d81917fc92e0437d62f6d9f3385078.jpg","type":0,"id":8789583,"ga_prefix":"091307","title":"苹果实在是太想让你\u000b丢掉那根线了，为此不惜砍掉耳机口"},{"image":"http://pic2.zhimg.com/ea4c5d5087e4f0b75f13265d512471c5.jpg","type":0,"id":8789511,"ga_prefix":"091307","title":"读读日报 24 小时热门 TOP 5 · 女版毒枭"},{"image":"http://pic1.zhimg.com/261cd537adcc97c717c870a9f3bc6534.jpg","type":0,"id":8789169,"ga_prefix":"091309","title":"警察实施抓捕时有没有必要避开孩子？"},{"image":"http://pic4.zhimg.com/6a5f7544b5ab519497f67548b35f7c3b.jpg","type":0,"id":8788023,"ga_prefix":"091217","title":"知乎好问题 · 为什么刷朋友圈让人「着迷又焦虑」？"},{"image":"http://pic4.zhimg.com/19cbdd9a5f0f4066a2844b3fb13698a3.jpg","type":0,"id":8785325,"ga_prefix":"091211","title":"不谈钱，只谈杨振宁说「不宜建造」的大型对撞机是什么"}]
      */
     private String date;
-    /**
-     * images : ["http://pic4.zhimg.com/0f13af30abcd22ca3d7215726397d7ef.jpg"]
-     * type : 0
-     * id : 8789711
-     * ga_prefix : 091310
-     * title : 疫苗从研发到投入市场需要哪些步骤？
-     */
-    private List<ZhiHuStory> stories;
-    /**
-     * image : http://pic1.zhimg.com/e0d81917fc92e0437d62f6d9f3385078.jpg
-     * type : 0
-     * id : 8789583
-     * ga_prefix : 091307
-     * title : 苹果实在是太想让你丢掉那根线了，为此不惜砍掉耳机口
-     */
-    private List<ZhiHuTopStory> top_stories;
 
     public String getDate() {
         return date;
@@ -41,20 +27,12 @@ public class ZhiHuDaily {
         this.date = date;
     }
 
-    public List<ZhiHuStory> getStories() {
-        return stories;
+    public int getId() {
+        return id;
     }
 
-    public void setStories(List<ZhiHuStory> stories) {
-        this.stories = stories;
-    }
-
-    public List<ZhiHuTopStory> getTop_stories() {
-        return top_stories;
-    }
-
-    public void setTop_stories(List<ZhiHuTopStory> top_stories) {
-        this.top_stories = top_stories;
+    public void setId(int id) {
+        this.id = id;
     }
 
 }
