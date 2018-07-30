@@ -1,7 +1,5 @@
 package com.tiger.persistence.neteasy;
 
-import com.tiger.persistence.github.UserInfo;
-
 import io.reactivex.Flowable;
 
 /**

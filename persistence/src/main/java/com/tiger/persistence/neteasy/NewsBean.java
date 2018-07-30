@@ -1,14 +1,12 @@
 package com.tiger.persistence.neteasy;
 
 import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
-
-import java.io.Serializable;
-
 /**
  * Created by tigershen on 2017/12/13.
  */
-
+@Entity
 public class NewsBean {
 
     @PrimaryKey(autoGenerate = true)
@@ -108,5 +106,21 @@ public class NewsBean {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 }

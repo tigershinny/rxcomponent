@@ -5,13 +5,11 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-import com.tiger.persistence.github.UserInfo;
-
 /**
  * Created by tigershen on 2017/12/14.
  */
 
-@Database(entities = {UserInfo.class}, version = 1)
+@Database(entities = {NewsBean.class}, version = 1, exportSchema = false)
 public abstract class NeteasyNewsDB extends RoomDatabase {
 
     private static volatile NeteasyNewsDB INSTANCE;
@@ -23,7 +21,7 @@ public abstract class NeteasyNewsDB extends RoomDatabase {
             synchronized (NeteasyNewsDB.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            NeteasyNewsDB.class, "github.db")
+                            NeteasyNewsDB.class, "neteasy.db")
                             .build();
                 }
             }
