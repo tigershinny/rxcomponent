@@ -29,25 +29,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation project(':repository')
     implementation deps.support.app_compat
-    implementation deps.room.runtime
-    annotationProcessor deps.room.compiler
-    implementation deps.room.rxjava2
-    implementation deps.gson.runtime
-
-    //Retrofit
-    implementation deps.retrofit.runtime
-    implementation deps.retrofit.gson
-    implementation deps.retrofit.adapter_rxjava2
-    implementation deps.okhttp_logging_interceptor
-
-    annotationProcessor deps.dagger.android_support_compiler
-    annotationProcessor deps.dagger.compiler
-
-    // RxJava
-    implementation deps.rx_android
-    implementation deps.rxjava2
 
     testImplementation deps.junit
 
