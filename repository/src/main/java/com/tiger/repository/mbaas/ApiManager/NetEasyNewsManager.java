@@ -13,7 +13,7 @@ import com.tiger.repository.mbaas.response.neteasy.TopNewsList;
 import com.tiger.repository.mbaas.response.neteasy.TravelNewsList;
 import com.tiger.repository.mbaas.mapper.MovieResponseMapper;
 
-import io.reactivex.Observable;
+import io.reactivex.Flowable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
 
@@ -23,7 +23,6 @@ import okhttp3.ResponseBody;
 
 public class NetEasyNewsManager extends ApiManager<NetEasyNewsApi>{
 
-    private NetEasyNewsApi netEasyNewsApi;
 
     private static NetEasyNewsManager netEasyNewsManager;
     private NetEasyNewsManager() {
@@ -44,42 +43,42 @@ public class NetEasyNewsManager extends ApiManager<NetEasyNewsApi>{
     /**
      * 封装 github API
      */
-    public Observable<TopNewsList> getTopNews(String index){
+    public Flowable<TopNewsList> getTopNews(String index){
         return getService().getTopNews(index)
                 .subscribeOn(Schedulers.io());
     }
 
-    public Observable<TecNewsList> getTecNews(String index){
+    public Flowable<TecNewsList> getTecNews(String index){
         return getService().getTecNews(index)
                 .subscribeOn(Schedulers.io());
     }
 
-    public Observable<SportNewsList> getSportNews(String index){
+    public Flowable<SportNewsList> getSportNews(String index){
         return getService().getSportNews(index)
                 .subscribeOn(Schedulers.io());
     }
 
-    public Observable<HealthNewsList> getRecommendNews(String index){
+    public Flowable<HealthNewsList> getRecommendNews(String index){
         return getService().getRecommendNews(index)
                 .subscribeOn(Schedulers.io());
     }
 
-    public Observable<RelaxNewsList> getDadaNews(String index){
+    public Flowable<RelaxNewsList> getDadaNews(String index){
         return getService().getDadaNews(index)
                 .subscribeOn(Schedulers.io());
     }
 
-    public Observable<MilitaryNewsList> getMilitaryNews(String index){
+    public Flowable<MilitaryNewsList> getMilitaryNews(String index){
         return getService().getMilitaryNews(index)
                 .subscribeOn(Schedulers.io());
     }
 
-    public Observable<TravelNewsList> getTravelNews(String index){
+    public Flowable<TravelNewsList> getTravelNews(String index){
         return getService().getTravelNews(index)
                 .subscribeOn(Schedulers.io());
     }
 
-    public Observable<ResponseBody> getNewsContent(String index){
+    public Flowable<ResponseBody> getNewsContent(String index){
         return getService().getNewsContent(index)
                 .subscribeOn(Schedulers.io());
     }

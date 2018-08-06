@@ -15,12 +15,12 @@ public class NeteasyNewsDS implements INeteasyNewsDS {
     }
 
     @Override
-    public Flowable<NewsBean> getNews() {
+    public Flowable<NewsEntity> getNews() {
         return mNeteasyNewsDao.getNews();
     }
 
     @Override
-    public void insertOrUpdateUser(NewsBean news) {
+    public void insertOrUpdateUser(NewsEntity news) {
         mNeteasyNewsDao.insertNews(news);
     }
 

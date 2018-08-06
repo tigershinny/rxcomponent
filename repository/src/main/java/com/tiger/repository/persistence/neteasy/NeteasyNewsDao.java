@@ -18,12 +18,12 @@ import io.reactivex.Flowable;
 public interface NeteasyNewsDao {
 
 
-    @Query("SELECT * FROM NewsBean")
-    Flowable<NewsBean> getNews();
+    @Query("SELECT * FROM NewsEntity")
+    Flowable<NewsEntity> getNews();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertNews(NewsBean news);
+    void insertNews(NewsEntity... news);
 
-    @Query("DELETE FROM NewsBean")
+    @Query("DELETE FROM NewsEntity")
     void deleteAllNews();
 }

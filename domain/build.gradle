@@ -31,6 +31,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':repository')
     implementation deps.support.app_compat
+    implementation deps.rxjava2
+    implementation deps.rx_android
+
 
     testImplementation deps.junit
 

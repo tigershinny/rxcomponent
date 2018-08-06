@@ -1,55 +1,21 @@
-package com.tiger.repository.persistence.neteasy;
+package com.tiger.repository.dto;
 
-import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
-/**
- * Created by tigershen on 2017/12/13.
- */
-@Entity
-public class NewsBean {
+import com.tiger.repository.persistence.neteasy.NewsEntity;
 
-    @PrimaryKey(autoGenerate = true)
-    private int id;
-    /**
-     * type 0 health, 1 millitary, 2 relax, 3 sport, 4 tec, 5 top, 6 travel
-     */
-    @ColumnInfo
-    private int type;
-    /**
-     * docid
-     */
-    @ColumnInfo
+public class News {
+
     private String docid;
-    /**
-     * 标题
-     */
-    @ColumnInfo
+
     private String title;
-    /**
-     * 小内容
-     */
-    @ColumnInfo
+
     private String digest;
-    /**
-     * 图片地址
-     */
-    @ColumnInfo
+
     private String imgsrc;
-    /**
-     * 来源
-     */
-    @ColumnInfo
+
     private String source;
-    /**
-     * 时间
-     */
-    @ColumnInfo
+
     private String ptime;
-    /**
-     * url
-     */
-    @ColumnInfo
+
     private String url;
 
     public String getTitle() {
@@ -108,19 +74,26 @@ public class NewsBean {
         this.url = url;
     }
 
-    public int getId() {
-        return id;
+    public News(){}
+
+    public News(String docid, String title, String digest, String imgsrc, String source, String ptime, String url) {
+        this.docid = docid;
+        this.title = title;
+        this.digest = digest;
+        this.imgsrc = imgsrc;
+        this.source = source;
+        this.ptime = ptime;
+        this.url = url;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
+    public News cloneFrom(NewsEntity bean){
+        return new News(
+                bean.getDocid(),
+                bean.getTitle(),
+                bean.getDigest(),
+                bean.getImgsrc(),
+                bean.getSource(),
+                bean.getPtime(),
+                bean.getUrl());
     }
 }

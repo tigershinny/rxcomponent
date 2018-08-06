@@ -11,11 +11,9 @@ import io.reactivex.Flowable;
  */
 public interface INeteasyNewsDS {
 
+    Flowable<NewsEntity> getNews();
 
-    Flowable<NewsBean> getNews();
-
-
-    void insertOrUpdateUser(NewsBean news);
+    void insertOrUpdateUser(NewsEntity news);
 
     void deleteAllNews();
 }
