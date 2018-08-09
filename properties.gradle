@@ -1,7 +1,7 @@
 ext.deps = [:]
 def versions = [:]
 versions.arch = hasProperty("ARCH_VERSION") ? getProperty("ARCH_VERSION") : "1.0.0"
-versions.support = "26.1.0"
+versions.support = "27.1.0"
 versions.dagger = "2.11"
 versions.junit = "4.12"
 versions.espresso = "3.0.1"
@@ -13,7 +13,6 @@ versions.mockito = "2.7.19"
 versions.mockito_all = "1.10.19"
 versions.dexmaker = "2.2.0"
 versions.constraint_layout = "1.0.2"
-versions.glide = "3.8.0"
 versions.timber = "4.5.1"
 versions.android_gradle_plugin = "3.0.0"
 versions.rxjava2 = "2.1.3"
@@ -26,6 +25,10 @@ versions.paging = "1.0.0-alpha4-1"
 versions.gson = "2.7"
 versions.javax_annotation = '1.0'
 versions.javax_inject = '1'
+versions.recycler_binding = "0.1.3"
+versions.glide = "4.7.1"
+versions.glide_transformation = "3.3.0"
+
 def deps = [:]
 
 def support = [:]
@@ -100,7 +103,6 @@ kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
 
 deps.kotlin = kotlin
 deps.paging = "android.arch.paging:runtime:$versions.paging"
-deps.glide = "com.github.bumptech.glide:glide:$versions.glide"
 deps.dexmaker = "com.linkedin.dexmaker:dexmaker-mockito:$versions.dexmaker"
 deps.constraint_layout = "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
 deps.timber = "com.jakewharton.timber:timber:$versions.timber"
@@ -112,12 +114,16 @@ deps.hamcrest = "org.hamcrest:hamcrest-all:$versions.hamcrest"
 deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
 deps.javax_annotation = "javax.annotation:jsr250-api:$versions.javax_annotation"
 deps.javax_inject = "javax.inject:javax.inject:$versions.javax_inject"
+deps.recycler_binding = "eu.rampsoftware:recycler-binding:$versions.recycler_binding"
+deps.glide = "com.github.bumptech.glide:glide:$versions.glide"
+deps.glide_compiler = "com.github.bumptech.glide:compiler:$versions.glide"
+deps.glide_transformation = "jp.wasabeef:glide-transformations:$versions.glide_transformation"
 ext.deps = deps
 
 def build_versions = [:]
-build_versions.min_sdk = 14
-build_versions.target_sdk = 26
-build_versions.build_tools = "26.0.2"
+build_versions.min_sdk = 15
+build_versions.target_sdk = 27
+build_versions.build_tools = "27.1.0"
 ext.build_versions = build_versions
 
 

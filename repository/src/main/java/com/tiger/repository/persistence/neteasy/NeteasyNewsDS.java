@@ -1,5 +1,7 @@
 package com.tiger.repository.persistence.neteasy;
 
+import java.util.List;
+
 import io.reactivex.Flowable;
 
 /**
@@ -15,7 +17,7 @@ public class NeteasyNewsDS implements INeteasyNewsDS {
     }
 
     @Override
-    public Flowable<NewsEntity> getNews() {
+    public Flowable<List<NewsEntity>> getNews() {
         return mNeteasyNewsDao.getNews();
     }
 

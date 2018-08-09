@@ -1,6 +1,5 @@
 package com.tiger.repository.mbaas.ApiManager;
 
-import com.tiger.repository.mbaas.Config;
 import com.tiger.repository.mbaas.CustomInterceptor;
 
 import java.util.concurrent.TimeUnit;
@@ -16,21 +15,25 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public abstract class ApiManager<T> {
 
+    private Class<T> type;
     protected T api;
+
     private String apiUrl;
 
     protected static OkHttpClient mClient;
 
-    protected ApiManager(String apiUrl) {
+    protected ApiManager(String apiUrl, Class<T> type) {
+        this.apiUrl = apiUrl;
+        this.type = type;
+
         mClient = new OkHttpClient.Builder()
                 .addInterceptor(new CustomInterceptor())
                 .connectTimeout(5, TimeUnit.SECONDS)
                 .readTimeout(10, TimeUnit.SECONDS)
                 .build();
-        this.apiUrl = apiUrl;
     }
 
-    public T getService() {
+    protected T getService() {
         if (api == null) {
             Retrofit retrofit = new Retrofit.Builder()
                     .client(mClient)
@@ -38,7 +41,7 @@ public abstract class ApiManager<T> {
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
-            return retrofit.create((Class<T>)api.getClass());
+            api = retrofit.create(type);
         }
         return api;
     }

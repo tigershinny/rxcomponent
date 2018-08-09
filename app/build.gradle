@@ -22,20 +22,40 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding{
+        enabled true
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':domain')
+    implementation project(path: ':repository')
 
     implementation deps.support.app_compat
+    implementation deps.support.recyclerview
+    implementation deps.recycler_binding
+    implementation deps.support.cardview
+
+    implementation deps.glide
+    annotationProcessor deps.glide_compiler
+    implementation  deps.glide_transformation
+
     implementation deps.rxjava2
+    implementation deps.rx_android
     implementation deps.javax_inject
+
+    annotationProcessor deps.dagger.compiler
+    implementation deps.dagger.runtime
+
+    annotationProcessor deps.dagger.android_support_compiler
+    implementation deps.dagger.android
+    implementation deps.dagger.android_support
 
     testImplementation deps.junit
 
     androidTestImplementation deps.atsl.runner
     androidTestImplementation deps.mockito.core, { exclude group: 'net.bytebuddy' }
 
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 }

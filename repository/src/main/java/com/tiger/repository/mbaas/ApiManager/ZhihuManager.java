@@ -17,7 +17,7 @@ public class ZhihuManager extends ApiManager<ZhihuDailyApi> {
     private static ZhihuManager zhihuManager;
 
     private ZhihuManager() {
-        super(Config.ZHIHU_API_URL);
+        super(Config.ZHIHU_API_URL, ZhihuDailyApi.class);
     }
 
     public static ZhihuManager getInstence() {

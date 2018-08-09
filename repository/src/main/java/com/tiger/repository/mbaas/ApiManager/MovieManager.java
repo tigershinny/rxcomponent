@@ -19,7 +19,7 @@ public class MovieManager extends ApiManager<MovieApi>{
 
     private static MovieManager movieManager;
     private MovieManager() {
-        super(Config.MOVIE_API_URL);
+        super(Config.MOVIE_API_URL, MovieApi.class);
     }
 
     public static MovieManager getInstence() {

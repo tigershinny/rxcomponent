@@ -26,7 +26,7 @@ public class NetEasyNewsManager extends ApiManager<NetEasyNewsApi>{
 
     private static NetEasyNewsManager netEasyNewsManager;
     private NetEasyNewsManager() {
-        super(Config.NETEASY_NEWS_API);
+        super(Config.NETEASY_NEWS_API, NetEasyNewsApi.class);
     }
 
     public static NetEasyNewsManager getInstence() {

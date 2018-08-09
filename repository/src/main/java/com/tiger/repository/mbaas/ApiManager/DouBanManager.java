@@ -15,7 +15,7 @@ public class DouBanManager extends ApiManager<DouBanApi>{
 
     private static DouBanManager douBanManager;
     private DouBanManager() {
-        super(Config.DOUBAN_API_URL);
+        super(Config.DOUBAN_API_URL, DouBanApi.class);
     }
 
     public static DouBanManager getInstence() {

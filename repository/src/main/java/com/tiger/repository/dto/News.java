@@ -86,14 +86,14 @@ public class News {
         this.url = url;
     }
 
-    public News cloneFrom(NewsEntity bean){
+    public News cloneFrom(NewsEntity entity){
         return new News(
-                bean.getDocid(),
-                bean.getTitle(),
-                bean.getDigest(),
-                bean.getImgsrc(),
-                bean.getSource(),
-                bean.getPtime(),
-                bean.getUrl());
+                entity.getDocid(),
+                entity.getTitle(),
+                entity.getDigest(),
+                entity.getImgsrc(),
+                entity.getSource(),
+                entity.getPtime(),
+                entity.getUrl());
     }
 }

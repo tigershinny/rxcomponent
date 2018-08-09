@@ -4,6 +4,8 @@ package com.tiger.repository.persistence.neteasy;
  * Created by tigershen on 2017/12/14.
  */
 
+import java.util.List;
+
 import io.reactivex.Flowable;
 
 /**
@@ -11,7 +13,7 @@ import io.reactivex.Flowable;
  */
 public interface INeteasyNewsDS {
 
-    Flowable<NewsEntity> getNews();
+    Flowable<List<NewsEntity>> getNews();
 
     void insertOrUpdateUser(NewsEntity news);
 

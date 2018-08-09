@@ -2,8 +2,10 @@ package com.tiger.repository;
 
 import com.tiger.repository.dto.News;
 
-import io.reactivex.Flowable;
+import java.util.List;
+
+import io.reactivex.Single;
 
 public interface IDataSource {
-    Flowable<News> getNews();
+    Single<List<News>> getNews();
 }

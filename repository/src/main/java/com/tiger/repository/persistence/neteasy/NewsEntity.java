@@ -2,6 +2,7 @@ package com.tiger.repository.persistence.neteasy;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 import com.tiger.repository.mbaas.response.neteasy.NewsBean;
@@ -129,6 +130,7 @@ public class NewsEntity {
 
     public NewsEntity(){}
 
+    @Ignore
     public NewsEntity(String docid, String title, String digest, String imgsrc, String source, String ptime, String url) {
         this.docid = docid;
         this.title = title;

@@ -1,7 +1,5 @@
 package com.tiger.repository.mbaas;
 
-import com.tiger.repository.mbaas.ApiManager.DouBanManager;
-
 import java.io.IOException;
 
 import okhttp3.Interceptor;

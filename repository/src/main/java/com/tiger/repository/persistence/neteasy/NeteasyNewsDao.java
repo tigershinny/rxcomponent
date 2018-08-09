@@ -9,6 +9,8 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
+import java.util.List;
+
 import io.reactivex.Flowable;
 
 /**
@@ -19,7 +21,7 @@ public interface NeteasyNewsDao {
 
 
     @Query("SELECT * FROM NewsEntity")
-    Flowable<NewsEntity> getNews();
+    Flowable<List<NewsEntity>> getNews();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertNews(NewsEntity... news);

@@ -14,7 +14,7 @@ import io.reactivex.schedulers.Schedulers;
 public class GithubManager extends ApiManager<GithubApi>{
     private static GithubManager githubManager;
     private GithubManager() {
-        super(Config.GITHUB_API_URL);
+        super(Config.GITHUB_API_URL, GithubApi.class);
     }
 
     public static GithubManager getInstence() {

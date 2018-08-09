@@ -1,6 +1,7 @@
 package com.tiger.repository;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.tiger.repository.dto.News;
 import com.tiger.repository.mbaas.ApiManager.NetEasyNewsManager;
@@ -9,7 +10,10 @@ import com.tiger.repository.persistence.neteasy.NeteasyNewsDB;
 import com.tiger.repository.persistence.neteasy.NeteasyNewsDao;
 import com.tiger.repository.persistence.neteasy.NewsEntity;
 
+import java.util.List;
+
 import io.reactivex.Flowable;
+import io.reactivex.Single;
 
 public class DataSource implements IDataSource {
 
@@ -26,13 +30,12 @@ public class DataSource implements IDataSource {
     }
 
     @Override
-    public Flowable<News> getNews() {
-        return netEasyNewsManager.getTopNews("1")
+    public Single<List<News>> getNews() {
+        return netEasyNewsManager.getTopNews("0")
                 .flatMapIterable(TopNewsList::getTopNewsArrayList)
                 .map(item -> new NewsEntity().cloneFrom(item))
                 .doOnNext(newsEntity -> neteasyNewsDao.insertNews(newsEntity))
-                .flatMap(entity -> neteasyNewsDao.getNews()
-                                .map(newsEntity -> new News().cloneFrom(newsEntity)));
-
+                .map(entity -> new News().cloneFrom(entity))
+                .toList();
     }
 }

@@ -1,7 +1,7 @@
 package com.tiger.domain;
 
-import io.reactivex.Flowable;
 import io.reactivex.Scheduler;
+import io.reactivex.Single;
 
 public abstract class NoArgQueryUseCase<R> {
     private final Scheduler mWorkScheduler;
@@ -12,12 +12,12 @@ public abstract class NoArgQueryUseCase<R> {
         this.mObserveScheduler = observeScheduler;
     }
 
-    public Flowable<R> run() {
+    public Single<R> run() {
         return buildUseCaseObservable()
                 .subscribeOn(mWorkScheduler)
                 .observeOn(mObserveScheduler);
     }
 
-    protected abstract Flowable<R> buildUseCaseObservable();
+    protected abstract Single<R> buildUseCaseObservable();
 
 }
